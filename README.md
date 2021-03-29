@@ -16,3 +16,13 @@ $ expo install react-native-gesture-handler react-native-reanimated react-native
 ```
 $ npm install redux react-redux
 ```
+
+## 手順(2)ホーム画面、設定画面を作りナビゲーションでつなげる
+
+- navigation
+  - AppNavigator.js
+- screens
+  - HomeScreen.js
+  - SettingScreen.js
+
+という構造にして書くと、ページが増えても管理しやすい。
