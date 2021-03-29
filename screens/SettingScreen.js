@@ -1,7 +1,18 @@
 import React from "react";
 import { View, Text, SafeAreaView, StyleSheet, Button } from "react-native";
+import { connect } from "react-redux";
+import * as actions from "../actions";
 
 class SettingScreen extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    console.log(this.props);
+    this.props.fetchUserRecord(); // Action creatorを呼ぶ
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -38,4 +49,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SettingScreen;
+const mapStateToProps = (state) => {
+  return {
+    // `state.user.fetchUserRecord`を → `this.props.fetchUserRecord`にコピー
+    fetchUserRecord: state.user.fetchUserRecord,
+  };
+};
+
+export default connect(mapStateToProps, actions)(SettingScreen);
